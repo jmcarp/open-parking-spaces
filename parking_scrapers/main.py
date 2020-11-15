@@ -6,6 +6,7 @@ from scrapers.ann_arbor import AnnArborScraper
 from scrapers.asheville import AshevilleScraper
 from scrapers.madison import MadisonScraper
 from scrapers.montgomery_county import MontgomeryCountyScraper
+from scrapers.pittsburgh import PittsburghScraper
 from scrapers.santa_barbara import SantaBarbaraScraper
 from scrapers.union_city import UnionCityScraper
 from scrapers.vail import VailScraper
@@ -18,6 +19,7 @@ SCRAPER_CLASSES = [
     AshevilleScraper,
     MadisonScraper,
     MontgomeryCountyScraper,
+    PittsburghScraper,
     SantaBarbaraScraper,
     UnionCityScraper,
     VailScraper,
