@@ -26,6 +26,8 @@ class VailScraper(Scraper):
                 if match is not None:
                     spaces, capacity = match.groups()
                     break
+            assert spaces is not None
+            assert capacity is not None
             yield LotSpaces(
                 lot=lot,
                 spaces=int(spaces),

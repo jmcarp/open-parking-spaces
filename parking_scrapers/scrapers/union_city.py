@@ -8,7 +8,8 @@ from base import LotSpaces, Scraper
 class UnionCityScraper(Scraper):
     """Scrape smarking api for Union City.
 
-    Get garage ids and api key from https://widgets.smarking.com/union-city-realtime-occupancy/index.html
+    Get garage ids and api key from
+    https://widgets.smarking.com/union-city-realtime-occupancy/index.html
     """
 
     API_URL = "https://my.smarking.net/api/users/v1/garages/id"
