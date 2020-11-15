@@ -93,7 +93,7 @@ resource "google_bigquery_table" "spaces" {
 
 data "archive_file" "scrape" {
   type        = "zip"
-  source_dir  = "${path.module}/parking_scrapers"
+  source_dir  = "${path.module}/../parking_scrapers"
   output_path = "${path.module}/scrape.zip"
 }
 

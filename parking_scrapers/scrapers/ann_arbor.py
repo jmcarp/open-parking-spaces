@@ -8,7 +8,7 @@ from base import LotSpaces, Scraper
 
 class AnnArborScraper(Scraper):
     HTML_URL = "https://payment.rpsa2.com/LocationAndRate/SpaceAvailability"
-    SPACES_PATTERN = re.compile(r"([\w\s]+) - (\d+) spaces as of at ([\w\s\.]+)")
+    SPACES_PATTERN = re.compile(r"(.*?) - (\d+) spaces as of at ([\w\s\.]+)")
     ADDRESS_OVERRIDES = {"305 S. Ashley": "305 S. Ashley St."}
 
     name = "ann_arbor"
