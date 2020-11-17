@@ -12,3 +12,6 @@ lint:
 	terraform fmt -check terraform
 	terraform init -backend=false terraform
 	terraform validate terraform
+
+deploy:
+	terraform apply terraform

@@ -5,20 +5,20 @@ import requests
 from base import LotSpaces, Scraper
 
 
-class UnionCityScraper(Scraper):
-    """Scrape smarking api for Union City.
+class EvanstonScraper(Scraper):
+    """Scrape smarking api for Evanston.
 
     Get garage ids and api key from
-    https://widgets.smarking.com/union-city-realtime-occupancy/index.html
+    https://widgets.smarking.com/city-of-evanston/index.html
     """
 
     METADATA_API_URL = "https://my.smarking.net/api/users/v1/garages/id/{}"
     OCCUPANCY_API_URL = "https://my.smarking.com/api/ds/v3/garages/{}/current/occupancy"
-    API_KEY = "IPljSUq_qhbN8Ycz6bCpl29LOHt0yzii77ybc_-w"
-    GARAGE_IDS = [929459, 250469, 908408, 634190, 323000, 174384, 252149, 949442]
-    NAME_PREFIX_PATTERN = re.compile(r"^\d+ - ")
+    API_KEY = "a0OrkKhPK3vRtDFCLnbCibc7G5_LHSgU2V-4jufR"
+    GARAGE_IDS = [292744, 184215, 835525]
+    NAME_PREFIX_PATTERN = re.compile(r"^\*Evanston - ", re.IGNORECASE)
 
-    name = "union_city"
+    name = "evanston"
 
     def fetch_spaces(self) -> Iterator[LotSpaces]:
         for garage_id in self.GARAGE_IDS:

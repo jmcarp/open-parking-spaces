@@ -5,8 +5,10 @@ from google.cloud import bigquery
 from scrapers.ann_arbor import AnnArborScraper
 from scrapers.asheville import AshevilleScraper
 from scrapers.birmingham import BirminghamScraper
+from scrapers.evanston import EvanstonScraper
 from scrapers.madison import MadisonScraper
 from scrapers.montgomery_county import MontgomeryCountyScraper
+from scrapers.naperville import NapervilleScraper
 from scrapers.new_haven import NewHavenScraper
 from scrapers.pittsburgh import PittsburghScraper
 from scrapers.santa_barbara import SantaBarbaraScraper
@@ -20,8 +22,10 @@ SCRAPER_CLASSES = [
     AnnArborScraper,
     AshevilleScraper,
     BirminghamScraper,
+    EvanstonScraper,
     MadisonScraper,
     MontgomeryCountyScraper,
+    NapervilleScraper,
     NewHavenScraper,
     PittsburghScraper,
     SantaBarbaraScraper,
