@@ -13,6 +13,7 @@ from scrapers.naperville import NapervilleScraper
 from scrapers.new_haven import NewHavenScraper
 from scrapers.pittsburgh import PittsburghScraper
 from scrapers.santa_barbara import SantaBarbaraScraper
+from scrapers.sfmta import SFMTAScraper
 from scrapers.union_city import UnionCityScraper
 from scrapers.vail import VailScraper
 
@@ -31,6 +32,7 @@ SCRAPER_CLASSES = [
     NewHavenScraper,
     PittsburghScraper,
     SantaBarbaraScraper,
+    SFMTAScraper,
     UnionCityScraper,
     VailScraper,
 ]
