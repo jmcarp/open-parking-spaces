@@ -17,11 +17,12 @@ class MontgomeryCountyScraper(Scraper):
         "GAR 60": "Wayne Avenue Garage",
         "GAR 61": "Town Square Garage",
     }
+    TIMEOUT = 5
 
     name = "montgomery_county"
 
     def fetch_spaces(self) -> Iterator[LotSpaces]:
-        response = requests.get(self.API_URL)
+        response = requests.get(self.API_URL, timeout=self.TIMEOUT)
         response.raise_for_status()
         data = response.json()
         for row in data:

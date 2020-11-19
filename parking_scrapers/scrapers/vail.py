@@ -8,12 +8,13 @@ from base import LotSpaces, Scraper
 
 class VailScraper(Scraper):
     HTML_URL = "http://www.vailassets.com/ParkingCounts/tabid/131/Default.aspx"
+    TIMEOUT = 5
     SPACES_PATTERN = re.compile(r"(\d+) spaces of (\d+) open", re.IGNORECASE)
 
     name = "vail"
 
     def fetch_spaces(self) -> Iterator[LotSpaces]:
-        response = requests.get(self.HTML_URL)
+        response = requests.get(self.HTML_URL, timeout=self.TIMEOUT)
         response.raise_for_status()
         doc = lxml.html.fromstring(response.content)
         divs = doc.xpath("//h4/parent::div")

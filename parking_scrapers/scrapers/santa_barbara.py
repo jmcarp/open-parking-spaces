@@ -6,11 +6,12 @@ from base import LotSpaces, Scraper
 
 class SantaBarbaraScraper(Scraper):
     API_URL = "https://www.santabarbaraca.gov/civicax/parking/api/status/"
+    TIMEOUT = 5
 
     name = "santa_barbara"
 
     def fetch_spaces(self) -> Iterator[LotSpaces]:
-        response = requests.get(self.API_URL)
+        response = requests.get(self.API_URL, timeout=self.TIMEOUT)
         response.raise_for_status()
         data = response.json()
         for row in data:

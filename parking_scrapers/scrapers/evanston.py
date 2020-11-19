@@ -15,6 +15,7 @@ class EvanstonScraper(Scraper):
     METADATA_API_URL = "https://my.smarking.net/api/users/v1/garages/id/{}"
     OCCUPANCY_API_URL = "https://my.smarking.com/api/ds/v3/garages/{}/current/occupancy"
     API_KEY = "a0OrkKhPK3vRtDFCLnbCibc7G5_LHSgU2V-4jufR"
+    TIMEOUT = 5
     GARAGE_IDS = [292744, 184215, 835525]
     NAME_PREFIX_PATTERN = re.compile(r"^\*Evanston - ", re.IGNORECASE)
 
@@ -25,6 +26,7 @@ class EvanstonScraper(Scraper):
             metadata_response = requests.get(
                 self.METADATA_API_URL.format(garage_id),
                 headers={"Authorization": f"Bearer {self.API_KEY}"},
+                timeout=self.TIMEOUT,
             )
             metadata_response.raise_for_status()
             metadata_data = metadata_response.json()
@@ -32,6 +34,7 @@ class EvanstonScraper(Scraper):
             occupancy_response = requests.get(
                 self.OCCUPANCY_API_URL.format(garage_id),
                 headers={"Authorization": f"Bearer {self.API_KEY}"},
+                timeout=self.TIMEOUT,
             )
             occupancy_response.raise_for_status()
             occupancy_data = occupancy_response.json()

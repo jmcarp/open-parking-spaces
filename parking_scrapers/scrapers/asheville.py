@@ -10,12 +10,13 @@ class AshevilleScraper(Scraper):
         "https://s3.amazonaws.com/bc-parking-decks/164College",
         "https://s3.amazonaws.com/bc-parking-decks/40Coxe",
     ]
+    TIMEOUT = 5
 
     name = "asheville"
 
     def fetch_spaces(self) -> Iterator[LotSpaces]:
         for api_url in self.API_URLS:
-            response = requests.get(api_url)
+            response = requests.get(api_url, timeout=self.TIMEOUT)
             response.raise_for_status()
             data = response.json()
             for deck in data["decks"]:

@@ -15,6 +15,7 @@ class UnionCityScraper(Scraper):
     METADATA_API_URL = "https://my.smarking.net/api/users/v1/garages/id/{}"
     OCCUPANCY_API_URL = "https://my.smarking.com/api/ds/v3/garages/{}/current/occupancy"
     API_KEY = "IPljSUq_qhbN8Ycz6bCpl29LOHt0yzii77ybc_-w"
+    TIMEOUT = 5
     GARAGE_IDS = [929459, 250469, 908408, 634190, 323000, 174384, 252149, 949442]
     NAME_PREFIX_PATTERN = re.compile(r"^\d+ - ")
 
@@ -25,6 +26,7 @@ class UnionCityScraper(Scraper):
             metadata_response = requests.get(
                 self.METADATA_API_URL.format(garage_id),
                 headers={"Authorization": f"Bearer {self.API_KEY}"},
+                timeout=self.TIMEOUT,
             )
             metadata_response.raise_for_status()
             metadata_data = metadata_response.json()
@@ -32,6 +34,7 @@ class UnionCityScraper(Scraper):
             occupancy_response = requests.get(
                 self.OCCUPANCY_API_URL.format(garage_id),
                 headers={"Authorization": f"Bearer {self.API_KEY}"},
+                timeout=self.TIMEOUT,
             )
             occupancy_response.raise_for_status()
             occupancy_data = occupancy_response.json()

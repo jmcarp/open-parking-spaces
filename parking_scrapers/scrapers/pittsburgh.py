@@ -8,6 +8,7 @@ from base import LotSpaces, Scraper
 
 class PittsburghScraper(Scraper):
     HTML_URL = "https://parkpgh.org/"
+    TIMEOUT = 5
     SPACES_PATTERN = re.compile(r"(\d+)\sspots\savailable", re.IGNORECASE)
     FULL_MESSAGE = "Lot is full or few spaces available"
 
@@ -15,7 +16,9 @@ class PittsburghScraper(Scraper):
 
     def fetch_spaces(self) -> Iterator[LotSpaces]:
         response = requests.get(
-            self.HTML_URL, headers={"User-Agent": "open-parking-spaces"}
+            self.HTML_URL,
+            headers={"User-Agent": "open-parking-spaces"},
+            timeout=self.TIMEOUT,
         )
         response.raise_for_status()
         doc = lxml.html.fromstring(response.content)

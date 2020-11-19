@@ -13,15 +13,19 @@ class CharlottesvilleScraper(Scraper):
     """
 
     HTML_URL = "https://widget.charlottesville.org/parkingcounter/parkinglot"
-    LOT_NAMES = ["market", "water"]
+    TIMEOUT = 5
+    LOTS = {
+        "market": "Market Street Garage",
+        "water": "Water Street Garage",
+    }
     IMAGE_PATTERN = re.compile(r"images/([b\d])[a-z]\.gif", re.IGNORECASE)
 
     name = "charlottesville"
 
     def fetch_spaces(self) -> Iterator[LotSpaces]:
-        for lot in self.LOT_NAMES:
-            url = f"{self.HTML_URL}?lotname={lot}"
-            response = requests.get(url)
+        for lot_id, lot_name in self.LOTS.items():
+            url = f"{self.HTML_URL}?lotname={lot_id}"
+            response = requests.get(url, timeout=self.TIMEOUT)
             response.raise_for_status()
             doc = lxml.html.fromstring(response.content)
 
@@ -35,7 +39,7 @@ class CharlottesvilleScraper(Scraper):
             spaces = int("".join(digits))
 
             yield LotSpaces(
-                lot=lot,
+                lot=lot_name,
                 spaces=spaces,
             )
 

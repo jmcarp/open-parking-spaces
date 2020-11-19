@@ -7,11 +7,12 @@ from base import LotSpaces, Scraper
 
 class NapervilleScraper(Scraper):
     HTML_URL = "https://www.naperville.il.us/about-naperville/transportation-and-parking/downtown-parking/"  # noqa: E501
+    TIMEOUT = 5
 
     name = "naperville"
 
     def fetch_spaces(self) -> Iterator[LotSpaces]:
-        response = requests.get(self.HTML_URL)
+        response = requests.get(self.HTML_URL, timeout=self.TIMEOUT)
         response.raise_for_status()
         doc = lxml.html.fromstring(response.content)
         sections = doc.xpath(

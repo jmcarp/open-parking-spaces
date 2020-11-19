@@ -8,13 +8,14 @@ from base import LotSpaces, Scraper
 
 class AnnArborScraper(Scraper):
     HTML_URL = "https://payment.rpsa2.com/LocationAndRate/SpaceAvailability"
+    TIMEOUT = 5
     SPACES_PATTERN = re.compile(r"(.*?) - (\d+) spaces as of at ([\w\s\.]+)")
     ADDRESS_OVERRIDES = {"305 S. Ashley": "305 S. Ashley St."}
 
     name = "ann_arbor"
 
     def fetch_spaces(self) -> Iterator[LotSpaces]:
-        response = requests.get(self.HTML_URL)
+        response = requests.get(self.HTML_URL, timeout=self.TIMEOUT)
         response.raise_for_status()
         doc = lxml.html.fromstring(response.content)
         for td in doc.xpath("//a[contains(@href, 'geo:')]/.."):
