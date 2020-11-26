@@ -15,6 +15,7 @@ from scrapers.pittsburgh import PittsburghScraper
 from scrapers.santa_barbara import SantaBarbaraScraper
 from scrapers.sfmta import SFMTAScraper
 from scrapers.union_city import UnionCityScraper
+from scrapers.uwisc_madison import UWisconsinMadisonScraper
 from scrapers.vail import VailScraper
 
 logging.basicConfig(level=logging.INFO)
@@ -34,6 +35,7 @@ SCRAPER_CLASSES = [
     SantaBarbaraScraper,
     SFMTAScraper,
     UnionCityScraper,
+    UWisconsinMadisonScraper,
     VailScraper,
 ]
 
