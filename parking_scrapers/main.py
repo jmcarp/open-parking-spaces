@@ -19,6 +19,7 @@ from scrapers.sfmta import SFMTAScraper
 from scrapers.union_city import UnionCityScraper
 from scrapers.uwisc_madison import UWisconsinMadisonScraper
 from scrapers.vail import VailScraper
+from scrapers.walnut_creek import WalnutCreekScraper
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -41,6 +42,7 @@ SCRAPER_CLASSES = [
     UnionCityScraper,
     UWisconsinMadisonScraper,
     VailScraper,
+    WalnutCreekScraper,
 ]
 
 TABLE_PATH = "open-parking-spaces.spaces.lot_spaces"
