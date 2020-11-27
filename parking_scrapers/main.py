@@ -3,6 +3,7 @@ import logging
 
 from google.cloud import bigquery
 from scrapers.ann_arbor import AnnArborScraper
+from scrapers.auburn import AuburnScraper
 from scrapers.asheville import AshevilleScraper
 from scrapers.birmingham import BirminghamScraper
 from scrapers.charlottesville import CharlottesvilleScraper
@@ -24,6 +25,7 @@ logger = logging.getLogger(__name__)
 SCRAPER_CLASSES = [
     AnnArborScraper,
     AshevilleScraper,
+    AuburnScraper,
     BirminghamScraper,
     CharlottesvilleScraper,
     EvanstonScraper,
