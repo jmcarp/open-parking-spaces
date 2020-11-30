@@ -8,6 +8,7 @@ from scrapers.auburn import AuburnScraper
 from scrapers.birmingham import BirminghamScraper
 from scrapers.charlotte import CharlotteScraper
 from scrapers.charlottesville import CharlottesvilleScraper
+from scrapers.csu_ohio import CSUOhioScraper
 from scrapers.evanston import EvanstonScraper
 from scrapers.madison import MadisonScraper
 from scrapers.montgomery_county import MontgomeryCountyScraper
@@ -31,6 +32,7 @@ SCRAPER_CLASSES = [
     BirminghamScraper,
     CharlotteScraper,
     CharlottesvilleScraper,
+    CSUOhioScraper,
     EvanstonScraper,
     MadisonScraper,
     MontgomeryCountyScraper,
