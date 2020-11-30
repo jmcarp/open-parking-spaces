@@ -5,6 +5,7 @@ from google.cloud import bigquery
 from scrapers.ann_arbor import AnnArborScraper
 from scrapers.asheville import AshevilleScraper
 from scrapers.auburn import AuburnScraper
+from scrapers.baylor import BaylorScraper
 from scrapers.birmingham import BirminghamScraper
 from scrapers.charlotte import CharlotteScraper
 from scrapers.charlottesville import CharlottesvilleScraper
@@ -30,6 +31,7 @@ SCRAPER_CLASSES = [
     AnnArborScraper,
     AshevilleScraper,
     AuburnScraper,
+    BaylorScraper,
     BirminghamScraper,
     CharlotteScraper,
     CharlottesvilleScraper,
