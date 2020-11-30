@@ -10,6 +10,7 @@ from scrapers.charlotte import CharlotteScraper
 from scrapers.charlottesville import CharlottesvilleScraper
 from scrapers.csu_ohio import CSUOhioScraper
 from scrapers.evanston import EvanstonScraper
+from scrapers.laguna_beach import LagunaBeachScraper
 from scrapers.madison import MadisonScraper
 from scrapers.montgomery_county import MontgomeryCountyScraper
 from scrapers.naperville import NapervilleScraper
@@ -34,6 +35,7 @@ SCRAPER_CLASSES = [
     CharlottesvilleScraper,
     CSUOhioScraper,
     EvanstonScraper,
+    LagunaBeachScraper,
     MadisonScraper,
     MontgomeryCountyScraper,
     NapervilleScraper,
@@ -50,7 +52,7 @@ SCRAPER_CLASSES = [
 TABLE_PATH = "open-parking-spaces.spaces.lot_spaces"
 
 
-def scrape(event, context, dry_run):
+def scrape(event, context, dry_run=False):
     bq_client = bigquery.Client()
     timestamp = datetime.datetime.utcnow()
     errors = []
