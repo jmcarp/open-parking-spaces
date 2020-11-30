@@ -48,7 +48,7 @@ SCRAPER_CLASSES = [
 TABLE_PATH = "open-parking-spaces.spaces.lot_spaces"
 
 
-def scrape(event, context):
+def scrape(event, context, dry_run):
     bq_client = bigquery.Client()
     timestamp = datetime.datetime.utcnow()
     errors = []
@@ -56,7 +56,7 @@ def scrape(event, context):
         logger.info(f"Processing scraper class {scraper_class}")
         scraper = scraper_class()
         try:
-            scraper.scrape(bq_client, TABLE_PATH, timestamp)
+            scraper.scrape(bq_client, TABLE_PATH, timestamp, dry_run=dry_run)
         except Exception as error:
             logger.exception(error)
             errors.append(error)
@@ -65,4 +65,4 @@ def scrape(event, context):
 
 
 if __name__ == "__main__":
-    scrape({}, {})
+    scrape({}, {}, dry_run=True)

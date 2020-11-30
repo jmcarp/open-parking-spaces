@@ -26,7 +26,11 @@ class Scraper(metaclass=abc.ABCMeta):
         pass
 
     def scrape(
-        self, bq_client: bigquery.Client, table_path: str, timestamp: datetime.datetime
+        self,
+        bq_client: bigquery.Client,
+        table_path: str,
+        timestamp: datetime.datetime,
+        dry_run: bool = False,
     ):
         table = bq_client.get_table(table_path)
         rows = [
@@ -37,6 +41,7 @@ class Scraper(metaclass=abc.ABCMeta):
             }
             for row in self.fetch_spaces()
         ]
-        errors = bq_client.insert_rows(table, rows)
-        if len(errors) > 0:
-            raise ValueError(errors)
+        if not dry_run:
+            errors = bq_client.insert_rows(table, rows)
+            if len(errors) > 0:
+                raise ValueError(errors)
