@@ -20,6 +20,7 @@ from scrapers.njit import NJITScraper
 from scrapers.pittsburgh import PittsburghScraper
 from scrapers.santa_barbara import SantaBarbaraScraper
 from scrapers.sfmta import SFMTAScraper
+from scrapers.tamu import TAMUScraper
 from scrapers.union_city import UnionCityScraper
 from scrapers.uwisc_madison import UWisconsinMadisonScraper
 from scrapers.vail import VailScraper
@@ -47,6 +48,7 @@ SCRAPER_CLASSES = [
     PittsburghScraper,
     SantaBarbaraScraper,
     SFMTAScraper,
+    TAMUScraper,
     UnionCityScraper,
     UWisconsinMadisonScraper,
     VailScraper,
