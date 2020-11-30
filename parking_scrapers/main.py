@@ -16,6 +16,7 @@ from scrapers.madison import MadisonScraper
 from scrapers.montgomery_county import MontgomeryCountyScraper
 from scrapers.naperville import NapervilleScraper
 from scrapers.new_haven import NewHavenScraper
+from scrapers.njit import NJITScraper
 from scrapers.pittsburgh import PittsburghScraper
 from scrapers.santa_barbara import SantaBarbaraScraper
 from scrapers.sfmta import SFMTAScraper
@@ -42,6 +43,7 @@ SCRAPER_CLASSES = [
     MontgomeryCountyScraper,
     NapervilleScraper,
     NewHavenScraper,
+    NJITScraper,
     PittsburghScraper,
     SantaBarbaraScraper,
     SFMTAScraper,
